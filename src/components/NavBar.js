@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../index';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import { SHOP_ROUTE } from '../utils/consts';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../utils/consts';
 
 const NavBar = observer(() => {
   const { user } = useContext(Context);
+  const navigate = useNavigate();
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm py-3">
@@ -32,6 +33,7 @@ const NavBar = observer(() => {
               <>
                 <Button
                   variant="outline-light"
+                  onClick={() => navigate(ADMIN_ROUTE)}
                   className="px-4"
                   style={{ fontWeight: '500' }}
                 >
@@ -39,6 +41,7 @@ const NavBar = observer(() => {
                 </Button>
                 <Button
                   variant="outline-light"
+                  onClick={() => navigate(LOGIN_ROUTE)}
                   className="px-4"
                   style={{ fontWeight: '500' }}
                 >
