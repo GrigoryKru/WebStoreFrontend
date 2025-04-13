@@ -1,6 +1,7 @@
-import React from 'react';
-import { Button, Col, Container, Image, Row } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import bigStar from '../assets/bigStar.png';
+import { Context } from '..';
 
 const DevicePage = () => {
   const { device } = useContext(Context);
@@ -45,7 +46,7 @@ const DevicePage = () => {
       </Row>
       <Row className="d-flex flex-column m-3">
         <h1>Характеристики</h1>
-        {description.map((info) => (
+        {description.map((info, index) => (
           <Row
             key={info.id}
             style={{

@@ -9,6 +9,11 @@ const NavBar = observer(() => {
   const { user } = useContext(Context);
   const navigate = useNavigate();
 
+  const logOut = () => {
+    user.setUser({});
+    user.setIsAuth(false);
+  };
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm py-3">
       <Container>
@@ -41,7 +46,7 @@ const NavBar = observer(() => {
                 </Button>
                 <Button
                   variant="outline-light"
-                  onClick={() => navigate(LOGIN_ROUTE)}
+                  onClick={() => logOut()}
                   className="px-4"
                   style={{ fontWeight: '500' }}
                 >
@@ -52,7 +57,7 @@ const NavBar = observer(() => {
               <Button
                 variant="outline-light"
                 className="px-4"
-                onClick={() => user.setIsAuth(true)}
+                onClick={() => navigate(LOGIN_ROUTE)}
                 style={{ fontWeight: '500' }}
               >
                 Войти
